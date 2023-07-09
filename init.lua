@@ -18,12 +18,21 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "dracula",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
+  },
+
+  mappings = {
+    ["<leader>gg"] = {
+      function()
+        astronvim.toggle_term_cmd "lazygit -ucf '/Users/sethetter/Library/Application Support/lazygit/nvim.yml'"
+      end,
+      desc = "Open lazygit",
+    },
   },
 
   lsp = {
@@ -69,6 +78,9 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
+    vim.cmd "hi EndOfBuffer guibg=NONE ctermbg=NONE"
+    vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
