@@ -11,6 +11,8 @@ return {
         "tsserver",
         "html",
         "cssls",
+        "jsonls",
+        "clangd",
       })
     end,
   },
